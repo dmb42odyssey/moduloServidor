@@ -63,7 +63,7 @@ Tomcat started
 
 ### Eclipse
 
-Embora seja possível a utilziação de outra IDE para editar uma variedade de diferentes tipos de arquivos (java, JSP, HTML, etc...), devido a fácil configuração e possibilidade de editar código e ver a prória atualização com o servidor ligado, recomenda-se o uso da IDE Eclipse. Se optar por outra opção, lembre-se de instalar a Java Entrepreise Edition, de maneira parecida com o procedimento com o Java SDK. Aqui seguem os passos para fazer a instalação correta e configuração:
+Embora seja possível a utilziação de outra IDE para editar uma variedade de diferentes tipos de arquivos (java, JSP, HTML, etc...), devido a fácil configuração e possibilidade de editar código e ver a prória atualização com o servidor ligado, recomenda-se o uso da IDE Eclipse. Se optar por outra opção, lembre-se de instalar o Java Entrepreise Edition, de maneira parecida com o procedimento com o Java SDK. Aqui seguem os passos para fazer a instalação correta e configuração:
 
 1. Faça download do instalador no [site](https://www.eclipse.org/downloads/).
 2. Rode o instalador, e selecione a opção "Eclipse IDE for Entrepise Java Developers".
@@ -73,7 +73,9 @@ Embora seja possível a utilziação de outra IDE para editar uma variedade de d
 6. Selecione o Apache Tomcat 9.0, e aperte "Next".
 7. Atualize o endereço de instalação do Tomcat (Ex: /home/usuario/Documents/apache-tomcat-9.0.31), e aperte "Finish".
 8. Na "Servers", dê dois cliques no servidor. Em "Servers Locations", mude a opção para usar o local da instalação do Tomcat.
-9. Clique no servidor, e clique no botão de rodar (circulo verde com seta branca). Teste novamente o endereço da seção anterior.
+9. Clique no servidor, e clique no botão de rodar (circulo verde com seta branca) e, teste novamente o endereço (*localhost*) da seção anterior.
+10. O servidor está rodando e mostrando a página padrão do tomcat, mas ainda não está configurado para inculir o projeto. Para isso, clique com o botão direito no servidor, e clique a opção "Add & Remove" e clique em "Add" para colocar na janela de configurados. Aperte "Finish".
+11. Com o endereço do *localhost* acrescente "webserver" (nome do projeto) e estará acessando a página *index* do aplicativo web.
 
 Agora você pode inicializar o tomcat direto do eclipse, com todas as dependências necessárias para desenvolvivemento web em Java.
 
@@ -85,4 +87,4 @@ Para acessar a página padrão do aplicativo web, basta adicionar */webserver/* 
 
 ## Autores
 
-Diego Martos Buoro 
+Diego Martos Buoro (@dmb42odyssey)
