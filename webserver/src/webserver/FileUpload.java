@@ -34,23 +34,25 @@ public class FileUpload extends HttpServlet {
             throws ServletException, IOException {
         
     	response.setContentType("text/html;charset=UTF-8");
-        // Pasta dos arquivos subidos ao servidor
+      
         
         final String uploadFolderPath = request.getServletContext().getRealPath("") + File.separator + UPLOAD_DIR;
         
         new File(uploadFolderPath).mkdir();
 
-        // Create path components to save the fi
         
         final Part filePart = request.getPart("file");
         final String fileName = getFileName(filePart);
    
 
+        String result = null;
+        
         OutputStream out = null;
         InputStream filecontent = null;
         final PrintWriter writer = response.getWriter();
-
-        try {
+        
+        try 
+        {
             out = new FileOutputStream(new 
             		File(uploadFolderPath
                     ,fileName));
@@ -62,14 +64,25 @@ public class FileUpload extends HttpServlet {
             while ((read = filecontent.read(bytes)) != -1) {
                 out.write(bytes, 0, read);
             }
-        } catch (FileNotFoundException fne) {
+        } 
+        catch (FileNotFoundException fne) 
+        {
             writer.println("You either did not specify a file to upload or are "
                     + "trying to upload a file to a protected or nonexistent "
                     + "location.");
             writer.println("<br/> ERROR: " + fne.getMessage());
-        } finally {
-            if (out != null) {
-                out.close();
+        } 
+        finally 
+        {
+        	try 
+            {
+            	result = getValidationResult(request.getServletContext().getRealPath("") ,uploadFolderPath + File.separator + fileName);
+            	request.setAttribute("result",result);
+                request.getRequestDispatcher("/WEB-INF/uploadResponse.jsp").forward(request, response);
+            }
+            catch (IOException e)
+            {
+            	
             }
             if (filecontent != null) {
                 filecontent.close();
@@ -77,30 +90,24 @@ public class FileUpload extends HttpServlet {
             if (writer != null) {
                 writer.close();
             }
+            if (out != null) {      
+                out.close();
+            }
         }
         
-        String result = null;
-        try 
-        {
-        	result = getValidationResult(request.getServletContext().getRealPath("") ,uploadFolderPath + File.separator + fileName);
-        }
-        catch (IOException e)
-        {
-        	
-        }
 
         System.out.println("RESULTADO: " + result);
-        /*
-        response.setContentType("text/html");
-        PrintWriter printWriter = response.getWriter();
         
-        printWriter.print("<html>");
-        printWriter.print("<body>");
-        printWriter.print(result); 
-        printWriter.print("</body>");
-        printWriter.print("</html>");
-        printWriter.close();
-        */
+    //    response.setContentType("text/html");
+    //    PrintWriter printWriter = response.getWriter();
+        
+    //    printWriter.print("<html>");
+    //    printWriter.print("<body>");
+    //    printWriter.print(result); 
+    //    printWriter.print("</body>");
+    //   printWriter.print("</html>");
+    //    printWriter.close();
+       
     }
 
     private String getFileName(final Part part) {
@@ -145,4 +152,16 @@ public class FileUpload extends HttpServlet {
 		
 		return result;
     }
+    
+    private String formatedHTMLresult(String result) 
+    {
+    	
+    	String conformanceLevel = "";
+    	    	
+    	String bodyHTML = "<h1> Resultado </h1>\n";
+    	bodyHTML += "";
+    	
+    	
+    	return bodyHTML;
+    }    
 }
