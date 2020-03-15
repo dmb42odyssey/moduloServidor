@@ -125,7 +125,7 @@ public class FileUpload extends HttpServlet {
     	String[] cmdArray = new String[4];
 		cmdArray[0] = "java";
 		cmdArray[1] = "-jar";
-		cmdArray[2] = "pdfmodule.jar";
+		cmdArray[2] = "pdfmodule-0.1.jar";
 		cmdArray[3] = filePath;
 		
 		final String pathToLib = "WEB-INF" + File.separator + "lib" + File.separator;
