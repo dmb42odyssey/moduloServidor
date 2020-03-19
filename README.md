@@ -87,10 +87,10 @@ Para acessar a página padrão do aplicativo web, basta adicionar */webserver/* 
 
 ### Arquivo WAR
 
-Eventualmente, ao final das modificações, será necessário fazer *redepoly* no servinder onde está instalado o tomcat. Assim, é necessário mm arquivo war (web archive) contém todas as informações do projeto. Para gerar esse arquivo, existem duas maneiras:
+Eventualmente, ao final das modificações, será necessário fazer *redeploy* no servidor onde está instalado o tomcat. Assim, é necessário um arquivo war (web archive) que contém todas as informações do projeto. Para gerar esse arquivo, existem duas maneiras:
 
 1. Pelo Eclipse, no menu File -> Export. Filtre por "war", selecione e clique ok. (Recomendado)
-2. Pelo ferramenta *jar*. No terminal, acesse a pasta do projeto e difite o comando:
+2. Pelo ferramenta *jar*. No terminal, acesse a pasta do projeto e digite o comando:
 
 ```
 jar -cvf nome_do_projeto.war *  
