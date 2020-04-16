@@ -1,4 +1,4 @@
-# PWS2020
+# moduloServidor
 
 WebApp feito para ser executado em um servidor com suporte a ferramenta Tomcat para a componente professor.
 
