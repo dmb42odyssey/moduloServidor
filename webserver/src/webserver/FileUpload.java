@@ -41,7 +41,7 @@ public class FileUpload extends HttpServlet {
         new File(uploadFolderPath).mkdir();
 
         
-        final Part filePart = request.getPart("file");
+        final Part filePart = request.getPart(getFileNameFromVerificationForm());
         final String fileName = getFileName(filePart);
    
 
@@ -97,17 +97,6 @@ public class FileUpload extends HttpServlet {
         
 
         System.out.println("RESULTADO: " + result);
-        
-    //    response.setContentType("text/html");
-    //    PrintWriter printWriter = response.getWriter();
-        
-    //    printWriter.print("<html>");
-    //    printWriter.print("<body>");
-    //    printWriter.print(result); 
-    //    printWriter.print("</body>");
-    //   printWriter.print("</html>");
-    //    printWriter.close();
-       
     }
 
     private String getFileName(final Part part) {
@@ -152,16 +141,13 @@ public class FileUpload extends HttpServlet {
 		
 		return result;
     }
-    
-    private String formatedHTMLresult(String result) 
+
+    /*
+     * Campo name do formulário. Caso esse seja alterado, refletir as mudanças aqui também.
+     */
+    private String getFileNameFromVerificationForm()
     {
-    	
-    	String conformanceLevel = "";
-    	    	
-    	String bodyHTML = "<h1> Resultado </h1>\n";
-    	bodyHTML += "";
-    	
-    	
-    	return bodyHTML;
-    }    
+    	return "arquivo";
+    }
+    
 }
